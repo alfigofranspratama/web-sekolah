@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Komite</a>
                     </li>
@@ -30,7 +30,7 @@ $komite = mysqli_query($con, "SELECT * FROM tb_komite")->fetch_array();
             <div class="page-body">
                 <!-- Basic table card start -->
                 <h4>Edit Komite</h4>
-                <form action="action.php?aksi=ekomite" method="post">
+                <form action="<?= $base_url; ?>action.php?aksi=ekomite" method="post">
                     <input type="hidden" name="id" value="<?= $komite['id']; ?>">
                     <textarea name="komite" id="editor" cols="30" rows="10">
                         <?= $komite['komite']; ?>

@@ -18,7 +18,7 @@ $jurusan = mysqli_query($con, "SELECT * FROM tb_jurusan WHERE id='$id'")->fetch_
                             </div>
                             <div class="card-block">
                                 <h4 class="sub-title">Edit <?= $jurusan['jurusan']; ?></h4>
-                                <form method="post" action="action.php?aksi=ejurusan" enctype="multipart/form-data">
+                                <form method="post" action="<?= $base_url; ?>action.php?aksi=ejurusan" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="<?= $jurusan['id']; ?>">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Jurusan</label>

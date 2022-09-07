@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Kepala Sekolah</a>
                     </li>
@@ -30,7 +30,7 @@ $kepsek = mysqli_query($con, "SELECT * FROM tb_kepsek")->fetch_array();
             <div class="page-body">
                 <!-- Basic table card start -->
                 <h4>Edit Sambutan Kepala Sekolah</h4>
-                <form action="action.php?aksi=ekepsek" method="post">
+                <form action="<?= $base_url; ?>action.php?aksi=ekepsek" method="post">
                     <input type="hidden" name="id" value="<?= $kepsek['id']; ?>">
                     <textarea name="kepsek" id="editor" cols="30" rows="10">
                         <?= $kepsek['sambutan']; ?>

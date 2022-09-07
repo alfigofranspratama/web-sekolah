@@ -1,5 +1,6 @@
 <?php 
 include 'koneksi.php';
+include 'base_url.php';
 $aksi = $_GET['aksi'];
 
 if ($aksi == 'view') {
@@ -11,7 +12,7 @@ if ($aksi == 'view') {
 
     if ($views) {
         ?> 
-        <meta http-equiv="refresh" content="0; url=index.php?page=post&id-post=<?= $id; ?>">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>post/<?= $id; ?>">
         <?php
     }
 } elseif ($aksi == 'komen') {
@@ -25,7 +26,7 @@ if ($aksi == 'view') {
     if ($komen) {
         ?> 
         <script>alert('Berhasil menambahkan komentar')</script>
-        <meta http-equiv="refresh" content="0; url=index.php?page=post&id-post=<?= $id; ?>">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>post/<?= $id; ?>">
         
         <?php
     }

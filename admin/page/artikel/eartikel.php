@@ -1,25 +1,3 @@
-<!-- <div class="page-header">
-    <div class="page-block">
-        <div class="row align-items-center">
-            <div class="col-md-8">
-                <div class="page-header-title">
-                    <h5 class="m-b-10">Tambah Postingan</h5>
-                    <p class="m-b-0">Tambah Postingan Kabar</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="#!">Tambah Postingan Kabar</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-Page-header end -->
 <?php
 $id = $_GET['id_posts'];
 $data = mysqli_query($con, "SELECT * FROM tb_posts WHERE id_posts='$id'")->fetch_array();
@@ -41,7 +19,7 @@ $data = mysqli_query($con, "SELECT * FROM tb_posts WHERE id_posts='$id'")->fetch
                             </div>
                             <div class="card-block">
                                 <h4 class="sub-title">Post</h4>
-                                <form method="post" action="action.php?aksi=eartikel&id_posts=<?= $data['id_posts']; ?>" enctype="multipart/form-data">
+                                <form method="post" action="<?= $base_url; ?>action.php?aksi=eartikel&id_posts=<?= $data['id_posts']; ?>" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Judul Artikel</label>
                                         <div class="col-sm-10">
@@ -51,7 +29,7 @@ $data = mysqli_query($con, "SELECT * FROM tb_posts WHERE id_posts='$id'")->fetch
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Thumbnail Saat ini</label>
                                         <div class="col-sm-10">
-                                            <img src="image/artikel/<?= $data['thumbnail']; ?>" class="img img-thumbnail" alt="">
+                                            <img src="<?= $base_url; ?>image/artikel/<?= $data['thumbnail']; ?>" class="img img-thumbnail" alt="">
                                         </div>
                                     </div>
                                     <div class="form-group row">

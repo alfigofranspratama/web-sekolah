@@ -50,7 +50,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Pengumuman</a>
                     </li>
@@ -76,7 +76,7 @@
                                 <h5>Tambah Pengumuman</h5>
                             </div>
                             <div class="card-block">
-                                <form method="post" action="action.php?aksi=tpengumuman">
+                                <form method="post" action="<?= $base_url; ?>action.php?aksi=tpengumuman">
                                     <input type="text" class="form-control" placeholder="Pengumuman" name="a">
                                     <button type="submit" class="btn btn-primary mt-2">Tambahkan</button>
                                 </form>
@@ -118,7 +118,7 @@
                                                     if ($data['status'] == 1) {
                                                     ?>
                                                         <div class="switch-field">
-                                                            <form action="action.php?aksi=pengumuman" method="post">
+                                                            <form action="<?= $base_url; ?>action.php?aksi=pengumuman" method="post">
                                                                 <input type="hidden" name="id" value="<?= $data['id_pengumuman']; ?>">
                                                                 <input type="radio" id="radio-one" onChange="this.form.submit()" value="1" name="status" checked>
                                                                 <label for="radio-one">On</label>
@@ -131,7 +131,7 @@
                                                     } else {
                                                     ?>
                                                         <div class="switch-field">
-                                                            <form action="action.php?aksi=pengumuman" method="post">
+                                                            <form action="<?= $base_url; ?>action.php?aksi=pengumuman" method="post">
                                                                 <input type="hidden" name="id" value="<?= $data['id_pengumuman']; ?>">
                                                                 <input type="radio" id="radio-one" onChange="this.form.submit()" value="1" name="status">
                                                                 <label for="radio-one">On</label>
@@ -145,7 +145,7 @@
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <form action="action.php?aksi=dpengumuman" method="post">
+                                                    <form action="<?= $base_url; ?>action.php?aksi=dpengumuman" method="post">
                                                         <input type="hidden" name="id" value="<?= $data['id_pengumuman']; ?>">
                                                         <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                                                     </form>

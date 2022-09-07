@@ -11,7 +11,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>/dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Keanggotaan</a>
                     </li>
@@ -32,7 +32,7 @@
                         <!-- Basic Form Inputs card start -->
                         <div class="card">
                             <div class="card-header">
-                                <h5><a href="index.php?halaman=tkeanggotaan">Tambah Keanggotaan</a></h5>
+                                <h5><a href="<?= $base_url; ?>tkeanggotaan">Tambah Keanggotaan</a></h5>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <!-- Button trigger modal -->
                         <div class="col-4">
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="image/keanggotaan/<?= $data['profil']; ?>" alt="Card image cap">
+                                <img class="card-img-top" src="<?= $base_url; ?>image/keanggotaan/<?= $data['profil']; ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <p class="card-text"><?= $data['nama']; ?></p>
                                     <p class="card-text text-danger"><?= $data['jabatan']; ?></p>
@@ -67,8 +67,8 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="action.php?aksi=hpsanggota&id=<?= $data['id_anggota']; ?>" method="post">
-                                                    <a href="index.php?halaman=ekeanggotaan&id=<?= $data['id_anggota']; ?>" class="btn btn-primary">Edit</a>
+                                                    <form action="<?= $base_url; ?>action.php?aksi=hpsanggota&id=<?= $data['id_anggota']; ?>" method="post">
+                                                    <a href="<?= $base_url; ?>ekeanggotaan/<?= $data['id_anggota']; ?>" class="btn btn-primary">Edit</a>
                                                         <button type="submit" class="btn btn-danger">Hapus</button>
                                                     </form>
                                                 </div>

@@ -50,7 +50,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?halaman=dashboard"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Jurusan</a>
                     </li>
@@ -74,7 +74,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5>
-                                    <a href="index.php?halaman=tjurusan" class="">Tambah Jurusan</a>
+                                    <a href="<?= $base_url; ?>tjurusan" class="">Tambah Jurusan</a>
                                 </h5>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                                                     <?= substr($data['informasi_detail'], 0, 255); ?> ...
                                                 </td>
                                                 <td>
-                                                    <form action="action.php?aksi=djurusan" method="post">
+                                                    <form action="<?= $base_url; ?>action.php?aksi=djurusan" method="post">
                                                         <input type="hidden" name="id" value="<?= $data['id']; ?>">
                                                         <!-- Button trigger modal -->
                                                         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal<?= $data['id']; ?>">
@@ -145,7 +145,7 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body text-center">
-                                                                        <a href="index.php?halaman=ejurusan&id=<?= $data['id']; ?>" class="btn btn-primary" >Edit</a>
+                                                                        <a href="<?= $base_url; ?>ejurusan/<?= $data['id']; ?>" class="btn btn-primary" >Edit</a>
                                                                         <button type="submit" class="btn btn-danger">Hapus</button>
                                                                     </div>
                                                                     <div class="modal-footer">

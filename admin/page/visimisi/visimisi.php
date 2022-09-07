@@ -49,7 +49,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Visi Misi</a>
                     </li>
@@ -75,7 +75,7 @@
                                 <h5>Tambah Visi Misi</h5>
                             </div>
                             <div class="card-block">
-                                <form method="post" action="action.php?aksi=visimisi">
+                                <form method="post" action="<?= $base_url; ?>action.php?aksi=visimisi">
                                     <textarea name="visimisi" id="" style="height: 80px;" cols="30" class="form-control" placeholder="Visi Misi" rows="10"></textarea>
                                     <select name="tipe" id="" class="form-control" required>
                                         <option value="">---</option>
@@ -119,7 +119,7 @@
                                                 <td><?= $data['visimisi']; ?></td>
                                                 <td><?= $data['tipe']; ?></td>
                                                 <td>
-                                                    <form action="action.php?aksi=hapusvisimisi" method="post">
+                                                    <form action="<?= $base_url; ?>action.php?aksi=hapusvisimisi" method="post">
                                                         <input type="hidden" name="id" value="<?= $data['id']; ?>">
                                                         <button type="submit" class="btn btn-danger" style="font-size: 12px;"><i class="fas fa-trash fa-1x"></i></button>
                                                     </form>

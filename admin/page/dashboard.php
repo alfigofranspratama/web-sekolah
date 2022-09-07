@@ -17,7 +17,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman")->num_rows;
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Dashboard</a>
                     </li>
@@ -108,7 +108,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman")->num_rows;
                             <div class="card-header">
                                 <h5>Komentar Terbaru</h5>
                                 <div class="card-header-right">
-                                    <a href="index.php?halaman=komentar"><i class="fa fa fa-wrench open-card-option"></i></a>
+                                    <a href="<?= $base_url; ?>komentar"><i class="fa fa fa-wrench open-card-option"></i></a>
                                 </div>
                             </div>
                             <div class="card-block">
@@ -124,7 +124,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman")->num_rows;
                                                 <tr>
                                                     <td>
                                                         <div class="d-inline-block align-middle">
-                                                            <img src="../img/noimage.png" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                            <img src="<?= $base_url; ?>../img/noimage.png" alt="user image" class="img-radius img-40 align-top m-r-15">
                                                             <div class="d-inline-block">
                                                                 <h6><?= $data['nama_users']; ?></h6>
                                                                 <p class="text-muted m-b-0"><?= $data['komentar']; ?></p>

@@ -12,7 +12,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>beranda"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Galeri</a>
                     </li>
@@ -35,7 +35,7 @@
                         <div class="card">
                             <div class="card-block">
                                 <h4 class="sub-title">Post</h4>
-                                <form method="post" action="action.php?aksi=berita" enctype="multipart/form-data">
+                                <form method="post" action="<?= $base_url; ?>action.php?aksi=berita" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Judul Berita</label>
                                         <div class="col-sm-10">
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <form action="action.php?aksi=hapusprestasi" method="post">
+                                    <form action="<?= $base_url; ?>action.php?aksi=hapusprestasi" method="post">
                                         <input type="hidden" name="id_posts" value="<?= $data['id_posts']; ?>">
                                         <button type="submit" class="btn btn-primary">Hapus</button>
                                     </form>

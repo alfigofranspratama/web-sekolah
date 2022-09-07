@@ -1,6 +1,7 @@
 <?php
 
 include 'koneksi.php';
+include 'base_url.php';
 
 function tanggal_indo($tanggal)
 {
@@ -74,20 +75,25 @@ function hari_ini()
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/logoweb.png" rel="icon">
+    <link href="<?= $base_url; ?>img/logoweb.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- PopUp WA -->
+    <script type="text/javascript" src="<?= $base_url; ?>popup/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="<?= $base_url; ?>popup/floating-wpp.min.js"></script>
+    <link rel="stylesheet" href="<?= $base_url; ?>popup/floating-wpp.min.css">
+
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?= $base_url; ?>lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="<?= $base_url; ?>css/style.css" rel="stylesheet">
 </head>
 <style>
     .hover:hover {
@@ -242,13 +248,8 @@ function hari_ini()
             </div>
         </div>
         <div class="row align-items-center bg-abu">
-            <!-- <div class="col-lg-4">
-                <a href="index.php?page=beranda" class="navbar-brand p-0 d-none d-lg-block">
-                    <h1 class="m-0 display-4 text-uppercase text-primary">Biz<span class="text-secondary font-weight-normal">News</span></h1>
-                </a>
-            </div> -->
             <div class="col-lg-12 text-center text-lg-right">
-                <a href="https://htmlcodex.com"><img class="img-fluid" src="img/header-smkn4pyk.png" alt=""></a>
+                <a href="<?= $base_url; ?>"><img class="img-fluid" src="<?= $base_url; ?>img/header-smkn4pyk.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -258,7 +259,6 @@ function hari_ini()
     <?php
     include 'navbar.php';
     ?>
-
 
     <?php
     include 'page.php';
@@ -313,23 +313,31 @@ function hari_ini()
     </div>
     <div class="container-fluid py-4 px-sm-3 px-md-5 bg-kedua">
         <p class="m-0 text-center putih">&copy; <a href="#" class="hitam hover">SMK NEGERI 4 PAYAKUMBUH.</a> All Rights Reserved.
-        </p>
-    </div>
-    <!-- Footer End -->
-
+    </p>
+</div>
+<!-- Footer End -->
+<div id="wa"></div>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<?= $base_url; ?>lib/easing/easing.min.js"></script>
+    <script src="<?= $base_url; ?>lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="<?= $base_url; ?>js/main.js"></script>
+    <script type="text/javascript">
+        $('#wa').floatingWhatsApp({
+            phone: '6281292389150',
+            headerTitle: 'WhatsApp SMKN 4 PYK',
+            popupMessage: 'Selamat Datang, ada yang bisa kami bantu?',
+            showPopup: true
+        });
+    </script>
 </body>
 
 </html>

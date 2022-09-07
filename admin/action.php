@@ -1,5 +1,6 @@
 <?php
 include '../koneksi.php';
+include 'base_url.php';
 $action = $_GET['aksi'];
 
 if ($action == 'login') {
@@ -13,11 +14,11 @@ if ($action == 'login') {
         $data = mysqli_fetch_array($cek);
         $_SESSION['username'] = $data['username'];
         $_SESSION['login'] = TRUE;
-        header("location:index.php?halaman=dashboard");
+        header("location:$base_url/dashboard");
     } else {
         echo "<script>alert('Username atau Password salah!!')</script>";
 ?>
-        <meta http-equiv="refresh" content="0; url=login.php">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>/login">
         <?php
     }
 } elseif ($action == 'berita') {
@@ -45,8 +46,13 @@ if ($action == 'login') {
             move_uploaded_file($file_tmp, 'image/berita/' . $xx);
             $post = mysqli_query($con, "INSERT INTO tb_posts VALUES (NULL, '$judul','$xx','$post_oleh','$tanggal_post','$tipe_postingan','$isi_postingan','$tampilkan_home',0)");
             if ($post) {
-                echo '<script>alert("Berita Berhasil di Tambahkan")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vberita">';
         ?>
+                <script>
+                    alert("Berita Berhasil di Tambahkan")
+                </script>
+                <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vberita">
+                <?php
+                ?>
         <?php
             } else {
                 echo '<script>alert("Gagal Menambahkan berita")</script>';
@@ -63,8 +69,11 @@ if ($action == 'login') {
     $delete = mysqli_query($con, "DELETE FROM tb_posts WHERE id_posts='$id_posts'");
 
     if ($delete) {
-        echo '<script>alert("Berita Berhasil di Hapus")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vberita">';
         ?>
+        <script>
+            alert("Berita Berhasil di Hapus")
+        </script>
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vberita">
         <?php
     }
 } elseif ($action == 'eberita') {
@@ -93,10 +102,14 @@ if ($action == 'login') {
             if ($ukuran < 1044070) {
                 $xx = $rand . "_" . $nama;
                 move_uploaded_file($file_tmp, 'image/berita/' . $xx);
+                // var_dump($move); die;
                 $editg = mysqli_query($con, "UPDATE tb_posts SET judul='$judul', thumbnail='$xx' ,isi_postingan='$isi_postingan', tampilkan_home='$tampilkan_home' WHERE id_posts='$id_posts'");
                 if ($editg) {
-                    echo '<script>alert("Berita Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vberita">';
         ?>
+                    <script>
+                        alert("Berita Berhasil di Edit")
+                    </script>
+                    <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vberita">
             <?php
                 } else {
                     echo '<script>alert("Gagal Edit berita")</script>';
@@ -110,8 +123,11 @@ if ($action == 'login') {
     } else {
         $edit = mysqli_query($con, "UPDATE tb_posts SET judul='$judul',isi_postingan='$isi_postingan', tampilkan_home='$tampilkan_home' WHERE id_posts='$id_posts'");
         if ($edit) {
-            echo '<script>alert("Berita Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vberita">';
             ?>
+            <script>
+                alert("Berita Berhasil di Edit")
+            </script>
+            <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vberita">
             <?php
         }
     }
@@ -140,8 +156,13 @@ if ($action == 'login') {
             move_uploaded_file($file_tmp, 'image/prestasi/' . $xx);
             $post = mysqli_query($con, "INSERT INTO tb_posts VALUES (NULL, '$judul','$xx','$post_oleh','$tanggal_post','$tipe_postingan','$isi_postingan','$tampilkan_home',0)");
             if ($post) {
-                echo '<script>alert("Prestasi Berhasil di Tambahkan")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vprestasi">';
             ?>
+                <script>
+                    alert("Prestasi Berhasil di Tambahkan")
+                </script>
+                <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vprestasi">
+                <?php
+                ?>
                 <?php
             } else {
                 echo '<script>alert("Gagal Menambahkan Prestasi")</script>';
@@ -180,8 +201,11 @@ if ($action == 'login') {
                 move_uploaded_file($file_tmp, 'image/prestasi/' . $xx);
                 $editg = mysqli_query($con, "UPDATE tb_posts SET judul='$judul', thumbnail='$xx' ,isi_postingan='$isi_postingan', tampilkan_home='$tampilkan_home' WHERE id_posts='$id_posts'");
                 if ($editg) {
-                    echo '<script>alert("Prestasi Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vprestasi">';
                 ?>
+                    <script>
+                        alert("Prestasi Berhasil di Edit")
+                    </script>
+                    <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vprestasi">
             <?php
                 } else {
                     echo '<script>alert("Gagal Edit Prestasi")</script>';
@@ -195,8 +219,9 @@ if ($action == 'login') {
     } else {
         $edit = mysqli_query($con, "UPDATE tb_posts SET judul='$judul',isi_postingan='$isi_postingan', tampilkan_home='$tampilkan_home' WHERE id_posts='$id_posts'");
         if ($edit) {
-            echo '<script>alert("Prestasi Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vprestasi">';
             ?>
+            <script>alert("Prestasi Berhasil di Edit")</script>
+            <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vprestasi">
             <?php
         }
     }
@@ -206,7 +231,10 @@ if ($action == 'login') {
     $delete = mysqli_query($con, "DELETE FROM tb_posts WHERE id_posts='$id_posts'");
 
     if ($delete) {
-        echo '<script>alert("Prestasi Berhasil di Hapus")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vprestasi">';
+        ?>
+        <script>alert("Prestasi Berhasil di Hapus")</script>
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vprestasi">
+        <?php
     }
 } elseif ($action == 'pengumuman') {
     $id = $_POST['id'];
@@ -215,7 +243,9 @@ if ($action == 'login') {
     $aksi = mysqli_query($con, "UPDATE tb_pengumuman SET status='$status' WHERE id_pengumuman='$id'");
 
     if ($aksi) {
-        echo '<meta http-equiv="refresh" content="0; url=index.php?halaman=vpengumuman">';
+        ?>
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vpengumuman">
+        <?php
     }
 } elseif ($action == 'tpengumuman') {
     $a = $_POST['a'];
@@ -223,7 +253,10 @@ if ($action == 'login') {
     $b = mysqli_query($con, "INSERT INTO tb_pengumuman VALUES (NULL,'$a','1')");
 
     if ($b) {
-        echo '<script>alert("Berhasil menambah pengumuman")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vpengumuman">';
+        ?>
+        <script>alert("Berhasil menambah pengumuman")</script>
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vpengumuman">
+        <?php
     }
 } elseif ($action == 'dpengumuman') {
     $id = $_POST['id'];
@@ -231,7 +264,7 @@ if ($action == 'login') {
     $del = mysqli_query($con, "DELETE FROM tb_pengumuman WHERE id_pengumuman='$id'");
 
     if ($del) {
-        echo "<script>alert('sukses menghapus pengumuman')</script>" . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vpengumuman">';
+        echo "<script>alert('sukses menghapus pengumuman')</script>" . '<meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vpengumuman">';
     }
 } elseif ($action == 'artikel') {
     session_start();
@@ -258,7 +291,10 @@ if ($action == 'login') {
             move_uploaded_file($file_tmp, 'image/artikel/' . $xx);
             $post = mysqli_query($con, "INSERT INTO tb_posts VALUES (NULL, '$judul','$xx','$post_oleh','$tanggal_post','$tipe_postingan','$isi_postingan','$tampilkan_home',0)");
             if ($post) {
-                echo '<script>alert("Artikel Berhasil di Tambahkan")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vartikel">';
+                ?>
+                <script>alert("Artikel Berhasil di Tambahkan")</script>
+                <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vartikel">
+                <?php
             ?>
                 <?php
             } else {
@@ -298,7 +334,10 @@ if ($action == 'login') {
                 move_uploaded_file($file_tmp, 'image/artikel/' . $xx);
                 $editg = mysqli_query($con, "UPDATE tb_posts SET judul='$judul', thumbnail='$xx' ,isi_postingan='$isi_postingan', tampilkan_home='$tampilkan_home' WHERE id_posts='$id_posts'");
                 if ($editg) {
-                    echo '<script>alert("Artikel Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vartikel">';
+                    ?>
+                    <script>alert("Artikel Berhasil di Edit")</script>
+                    <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vartikel">
+                    <?php
                 ?>
             <?php
                 } else {
@@ -313,8 +352,9 @@ if ($action == 'login') {
     } else {
         $edit = mysqli_query($con, "UPDATE tb_posts SET judul='$judul',isi_postingan='$isi_postingan', tampilkan_home='$tampilkan_home' WHERE id_posts='$id_posts'");
         if ($edit) {
-            echo '<script>alert("Artikel Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vartikel">';
             ?>
+            <script>alert("Artikel Berhasil di Edit")</script>
+            <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vartikel">
         <?php
         }
     }
@@ -325,7 +365,10 @@ if ($action == 'login') {
     $insert = mysqli_query($con, "INSERT INTO tb_jurusan VALUES (NULL,'$jurusan','$detail','default.jpg')");
 
     if ($insert) {
-        echo '<script>alert("Berhasil menambahkan jurusan")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vjurusan">';
+        ?>
+        <script>alert("Berhasil menambahkan jurusan")</script>
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vjurusan">
+        <?php
     }
 } elseif ($action == 'djurusan') {
     $id = $_POST['id'];
@@ -333,7 +376,7 @@ if ($action == 'login') {
     $delete = mysqli_query($con, "DELETE FROM tb_jurusan WHERE id='$id'");
 
     if ($delete) {
-        echo "<script>alert('Sukses Menghapus Jurusan')</script>" . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vjurusan">';
+        echo "<script>alert('Sukses Menghapus Jurusan')</script>" . '<meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vjurusan">';
     }
 } elseif ($action == 'ejurusan') {
     $id = $_POST['id'];
@@ -343,7 +386,7 @@ if ($action == 'login') {
     $update = mysqli_query($con, "UPDATE tb_jurusan SET jurusan='$jurusan', informasi_detail='$detail' WHERE id='$id'");
 
     if ($update) {
-        echo "<script>alert('Berhasil edit jurusan')</script>" . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vjurusan">';
+        echo "<script>alert('Berhasil edit jurusan')</script>" . '<meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vjurusan">';
     }
 } elseif ($action == 'hapusposts') {
     $id_posts = $_POST['id_posts'];
@@ -351,7 +394,10 @@ if ($action == 'login') {
     $delete = mysqli_query($con, "DELETE FROM tb_posts WHERE id_posts='$id_posts'");
 
     if ($delete) {
-        echo '<script>alert("Artikel Berhasil di Hapus")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=vartikel">';
+        ?>
+        <script>alert("Artikel Berhasil di Hapus")</script>
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>vartikel">
+        <?php
     }
 } elseif ($action == 'visimisi') {
     $visimisi = $_POST['visimisi'];
@@ -364,7 +410,7 @@ if ($action == 'login') {
         <script>
             alert('Sukses Menambah Visi / Misi')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=visimisi">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>visimisi">
     <?php
     }
 } elseif ($action == 'hapusvisimisi') {
@@ -377,7 +423,7 @@ if ($action == 'login') {
         <script>
             alert('Sukses Menghapus Visi / Misi')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=visimisi">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>visimisi">
     <?php
     }
 } elseif ($action == 'hapuskomentar') {
@@ -390,7 +436,7 @@ if ($action == 'login') {
         <script>
             alert('komentar berhasil di hapus')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=komentar">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>komentar">
     <?php
     }
 } elseif ($action == 'esapras') {
@@ -403,7 +449,7 @@ if ($action == 'login') {
         <script>
             alert('Sarana Prasarana Berhasil di Edit')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=sapras">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>sapras">
     <?php
     }
 } elseif ($action == 'tkeanggotaan') {
@@ -424,7 +470,10 @@ if ($action == 'login') {
             move_uploaded_file($file_tmp, 'image/keanggotaan/' . $xx);
             $post = mysqli_query($con, "INSERT INTO tb_keanggotaan VALUES (NULL, '$namae','$jabatan','$xx')");
             if ($post) {
-                echo '<script>alert("Anggota Berhasil di Tambahkan")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=keanggotaan">';
+                ?>
+                <script>alert("Anggota Berhasil di Tambahkan")</script>
+                <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>keanggotaan">
+                <?php
             } else {
                 echo '<script>alert("Gagal Menambahkan artikel")</script>';
             }
@@ -444,7 +493,7 @@ if ($action == 'login') {
         <script>
             alert('Berhasil menghapus anggota.')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=keanggotaan">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>keanggotaan">
         <?php
     }
 } elseif ($action == 'ekeanggotaan') {
@@ -467,7 +516,10 @@ if ($action == 'login') {
                 move_uploaded_file($file_tmp, 'image/keanggotaan/' . $xx);
                 $editg = mysqli_query($con, "UPDATE tb_keanggotaan SET nama='$namae', jabatan='$jabatan', profil='$xx' WHERE id_anggota = '$id'");
                 if ($editg) {
-                    echo '<script>alert("Anggota Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=keanggotaan">';
+                    ?>
+                    <script>alert("Anggota Berhasil di Edit")</script>
+                    <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>keanggotaan">
+                    <?php
         ?>
             <?php
                 } else {
@@ -482,22 +534,23 @@ if ($action == 'login') {
     } else {
         $edit = mysqli_query($con, "UPDATE tb_keanggotaan SET nama='$namae', jabatan='$jabatan' WHERE id_anggota = '$id'");
         if ($edit) {
-            echo '<script>alert("Keanggotaan Berhasil di Edit")</script>' . '<meta http-equiv="refresh" content="0; url=index.php?halaman=keanggotaan">';
             ?>
-<?php
+            <script>alert("Keanggotaan Berhasil di Edit")</script>
+            <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>keanggotaan">
+        <?php
         }
     }
-}  elseif ($action == 'ekemitraan') {
+} elseif ($action == 'ekemitraan') {
     $id = $_POST['id'];
     $kemitraan = $_POST['kemitraan'];
     $edit = mysqli_query($con, "UPDATE tb_kemitraan SET kemitraan='$kemitraan' WHERE id='$id'");
 
     if ($edit) {
-    ?>
+        ?>
         <script>
             alert('Kemitraan Berhasil di Edit')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=kemitraan">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>kemitraan">
     <?php
     }
 } elseif ($action == 'ekepsek') {
@@ -510,7 +563,7 @@ if ($action == 'login') {
         <script>
             alert('Kepsek Berhasil di Edit')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=kepsek">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>kepsek">
     <?php
     }
 } elseif ($action == 'ekomite') {
@@ -523,7 +576,7 @@ if ($action == 'login') {
         <script>
             alert('Komite Berhasil di Edit')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=komite">
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>komite">
     <?php
     }
 } elseif ($action == 'epbm') {
@@ -536,7 +589,7 @@ if ($action == 'login') {
         <script>
             alert('PBM Berhasil di Edit')
         </script>
-        <meta http-equiv="refresh" content="0; url=index.php?halaman=pbm">
-    <?php
+        <meta http-equiv="refresh" content="0; url=<?= $base_url; ?>pbm">
+<?php
     }
 }

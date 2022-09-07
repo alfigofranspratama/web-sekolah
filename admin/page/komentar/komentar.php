@@ -49,7 +49,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>beranda"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Komentar</a>
                     </li>
@@ -94,9 +94,9 @@
                                                 <th scope="row"><?= $no++; ?></th>
                                                 <td><?= $data['nama_users']; ?></td>
                                                 <td><?= $data['komentar']; ?></td>
-                                                <td><a href="../index.php?page=post&id-post=<?= $data['id_posts']; ?>" target="_blank">Klik disini</a></td>
+                                                <td><a href="<?= $base_url; ?>../post/<?= $data['id_posts']; ?>" target="_blank">Klik disini</a></td>
                                                 <td>
-                                                    <form action="action.php?aksi=hapuskomentar" method="post">
+                                                    <form action="<?= $base_url; ?>action.php?aksi=hapuskomentar" method="post">
                                                         <input type="hidden" name="id" value="<?= $data['id_komentar']; ?>">
                                                         <button type="submit" class="btn btn-danger" style="font-size: 12px;"><i class="fas fa-trash fa-1x"></i></button>
                                                     </form>

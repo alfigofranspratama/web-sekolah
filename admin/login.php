@@ -1,3 +1,6 @@
+<?php 
+include 'base_url.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,21 +21,21 @@
     <meta name="author" content="Codedthemes" />
     <!-- Favicon icon -->
 
-    <link rel="icon" href="../img/logoweb.png" type="image/x-icon">
+    <link rel="icon" href="<?= $base_url; ?>../img/logoweb.png" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= $base_url; ?>assets/css/bootstrap/css/bootstrap.min.css">
     <!-- waves.css -->
-    <link rel="stylesheet" href="assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="<?= $base_url; ?>assets/pages/waves/css/waves.min.css" type="text/css" media="all">
     <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?= $base_url; ?>assets/icon/themify-icons/themify-icons.css">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="<?= $base_url; ?>assets/icon/icofont/css/icofont.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= $base_url; ?>assets/icon/font-awesome/css/font-awesome.min.css">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= $base_url; ?>assets/css/style.css">
 </head>
 
 <body themebg-pattern="theme1">
@@ -98,9 +101,9 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
 
-                    <form action="action.php?aksi=login" method="post" class="md-float-material form-material">
+                    <form action="<?= $base_url; ?>action.php?aksi=login" method="post" class="md-float-material form-material">
                         <div class="text-center">
-                            <img src="../img/logoweb.png" alt="logo.png">
+                            <img src="<?= $base_url; ?>../img/logoweb.png" alt="logo.png">
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
@@ -142,10 +145,10 @@
                                 <div class="row">
                                     <div class="col-md-10">
                                         <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                        <p class="text-inverse text-left"><a href="../index.php?page=beranda"><b>Back to website</b></a></p>
+                                        <p class="text-inverse text-left"><a href="<?= $base_url; ?>../beranda"><b>Back to website</b></a></p>
                                     </div>
                                     <div class="col-md-2">
-                                        <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                        <img src="<?= $base_url; ?>assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
                                     </div>
                                 </div>
                             </div>
@@ -204,15 +207,15 @@
 <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
-    <script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
-    <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>
-    <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
+    <script type="text/javascript" src="<?= $base_url; ?>assets/js/jquery/jquery.min.js "></script>
+    <script type="text/javascript" src="<?= $base_url; ?>assets/js/jquery-ui/jquery-ui.min.js "></script>
+    <script type="text/javascript" src="<?= $base_url; ?>assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="<?= $base_url; ?>assets/js/bootstrap/js/bootstrap.min.js "></script>
     <!-- waves js -->
-    <script src="assets/pages/waves/js/waves.min.js"></script>
+    <script src="<?= $base_url; ?>assets/pages/waves/js/waves.min.js"></script>
     <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
-    <script type="text/javascript" src="assets/js/common-pages.js"></script>
+    <script type="text/javascript" src="<?= $base_url; ?>assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="<?= $base_url; ?>assets/js/common-pages.js"></script>
 </body>
 
 </html>

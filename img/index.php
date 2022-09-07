@@ -92,7 +92,7 @@ function Tanggal($tanggal)
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="logo">
-                                <a href="index.php?page=beranda"><img src="assets/img/logo/header-smkn4pyk.png" width="100%" alt=""></a>
+                                <a href="<?= $base_url; ?>beranda"><img src="assets/img/logo/header-smkn4pyk.png" width="100%" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -103,13 +103,13 @@ function Tanggal($tanggal)
                             <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="index.php?page=beranda"><img src="assets/img/logo/logoweb.png" alt=""></a>
+                                    <a href="<?= $base_url; ?>beranda"><img src="assets/img/logo/logoweb.png" alt=""></a>
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.php?page=beranda">Home</a></li>
+                                            <li><a href="<?= $base_url; ?>beranda">Home</a></li>
                                             <li><a href="about.html">about</a></li>
                                             <li><a href="categori.html">Category</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
@@ -1058,7 +1058,7 @@ function Tanggal($tanggal)
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo">
-                                        <a href="index.php?page=beranda"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="<?= $base_url; ?>beranda"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">

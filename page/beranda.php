@@ -161,7 +161,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman WHERE status='1'")
                             <div class="col-lg-12">
                                 <div class="section-title bg-utama">
                                     <h4 class="m-0 text-uppercase putih font-weight-bold">PRESTASI</h4>
-                                    <a class="putih font-weight-medium text-decoration-none" href="index.php?page=allpost&type=prestasi">View All</a>
+                                    <a class="putih font-weight-medium text-decoration-none" href="<?= $base_url; ?>allpost/prestasi">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman WHERE status='1'")
                             <div class="col-lg-12">
                                 <div class="section-title bg-utama">
                                     <h4 class="m-0 text-uppercase putih font-weight-bold">BERITA</h4>
-                                    <a class="putih font-weight-medium text-decoration-none" href="index.php?page=allpost&type=berita">View All</a>
+                                    <a class="putih font-weight-medium text-decoration-none" href="<?= $base_url; ?>allpost/berita">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -239,13 +239,13 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman WHERE status='1'")
                         </div>
                         <div class="mt-3">
                             <h5>
-                                <a href="" class="d-block text-secondary text-uppercase font-weight-bold">Sambutan Kepala Sekolah</a>
+                                <a href="index.php?page=kepalasekolah" class="d-block text-secondary text-uppercase font-weight-bold">Sambutan Kepala Sekolah</a>
                             </h5>
                             <h6>
-                                <a href="" class="d-block text-secondary text-uppercase font-weight-bold">SMK NEGERI 4 PAYAKUMBUH</a>
+                                <a href="index.php?page=kepalasekolah" class="d-block text-secondary text-uppercase font-weight-bold">SMK NEGERI 4 PAYAKUMBUH</a>
                             </h6>
                             <h6>
-                                <a href="" class="d-block text-secondary text-uppercase font-weight-bold">Drs. AIZUR HEDI, MM</a>
+                                <a href="index.php?page=kepalasekolah   " class="d-block text-secondary text-uppercase font-weight-bold">Drs. AIZUR HEDI, MM</a>
                             </h6>
                         </div>
                     </div>
@@ -346,7 +346,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman WHERE status='1'")
                     <div class="col-lg-12">
                         <div class="section-title bg-utama">
                             <h4 class="m-0 text-uppercase putih font-weight-bold">Artikel</h4>
-                            <a class="putih font-weight-medium text-decoration-none" href="index.php?page=allpost&type=artikel">View All</a>
+                            <a class="putih font-weight-medium text-decoration-none" href="<?= $base_url; ?>allpost/artikel">View All</a>
                         </div>
                     </div>
                 </div>
@@ -381,7 +381,7 @@ $pengumuman = mysqli_query($con, "SELECT * FROM tb_pengumuman WHERE status='1'")
             <div class="col-lg-12">
                 <div class="section-title bg-utama">
                     <h4 class="m-0 text-uppercase putih font-weight-bold">GALERI</h4>
-                    <a class="putih font-weight-medium text-decoration-none" href="index.php?page=allgalery">View All</a>
+                    <a class="putih font-weight-medium text-decoration-none" href="<?= $base_url; ?>allpost/allgalery">View All</a>
                 </div>
 
                 <div class="container">

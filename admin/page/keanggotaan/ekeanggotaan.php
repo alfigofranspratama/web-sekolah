@@ -14,7 +14,7 @@ $q = mysqli_query($con, "SELECT * FROM tb_keanggotaan WHERE id_anggota = '$id'")
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>/dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Edit Keanggotaan</a>
                     </li>
@@ -28,7 +28,7 @@ $q = mysqli_query($con, "SELECT * FROM tb_keanggotaan WHERE id_anggota = '$id'")
     <div class="main-body">
         <div class="page-wrapper">
             <div class="page-body">
-                <form action="action.php?aksi=ekeanggotaan&id=<?= $q['id_anggota']; ?>" enctype="multipart/form-data" method="post">
+                <form action="<?= $base_url; ?>action.php?aksi=ekeanggotaan&id=<?= $q['id_anggota']; ?>" enctype="multipart/form-data" method="post">
                     <div class="row">
                         <div class="col-6">
                             <div class="row">
@@ -56,7 +56,7 @@ $q = mysqli_query($con, "SELECT * FROM tb_keanggotaan WHERE id_anggota = '$id'")
                             <div class="row">
                                 <div class="col-10 mb-3">
                                     <label for="img" class="form-label">Gambar Saat ini</label><br>
-                                    <img class="img-thumbnail" src="image/keanggotaan/<?= $q['profil']; ?>" alt="" width="50%">
+                                    <img class="img-thumbnail" src="<?= $base_url; ?>image/keanggotaan/<?= $q['profil']; ?>" alt="" width="50%">
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Sarana Prasarana</a>
                     </li>
@@ -30,7 +30,7 @@ $sapras = mysqli_query($con, "SELECT * FROM tb_sapras")->fetch_array();
             <div class="page-body">
                 <!-- Basic table card start -->
                 <h4>Edit Sarana Prasarana</h4>
-                <form action="action.php?aksi=esapras" method="post">
+                <form action="<?= $base_url; ?>action.php?aksi=esapras" method="post">
                     <input type="hidden" name="id" value="<?= $sapras['id']; ?>">
                     <textarea name="sapras" id="editor" cols="30" rows="10">
                         <?= $sapras['sapras']; ?>

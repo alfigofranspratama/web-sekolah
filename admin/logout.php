@@ -1,6 +1,7 @@
 <?php 
+include 'base_url.php';
 session_start();
 session_destroy();
 session_unset();
-header("location:login.php");
+header("location:$base_url/login");
 ?>

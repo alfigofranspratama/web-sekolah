@@ -14,7 +14,7 @@
                             </div>
                             <div class="card-block">
                                 <h4 class="sub-title">Post</h4>
-                                <form method="post" action="action.php?aksi=jurusan" enctype="multipart/form-data">
+                                <form method="post" action="<?= $base_url; ?>action.php?aksi=jurusan" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Jurusan</label>
                                         <div class="col-sm-10">

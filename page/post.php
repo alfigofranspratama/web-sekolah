@@ -19,7 +19,7 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                         <div class="container bwh">
                             <ul class="breadcrumb" style="font-size: 12px; background-color: white; color: #000;">
                                 <li class="breadcrumb-item">
-                                    <a href="index.php?page=beranda" style="color: #000;"> <i class="fa fa-home"></i> Home</a>
+                                    <a href="<?= $base_url; ?>beranda" style="color: #000;"> <i class="fa fa-home"></i> Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#!" style="color: #000;"><?= $post['tipe_postingan']; ?></a>
                                 </li>
@@ -42,7 +42,7 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                                 <div class="row">
                                     <div class="col-8 garis_vertikal">
                                         <p class="m-0"><?= $post['isi_postingan']; ?></p>
-                                        <p><img src="admin/image/<?= $post['tipe_postingan']; ?>/<?= $post['thumbnail']; ?>" width="100%" alt=""></p>
+                                        <p><img src="<?= $base_url; ?>admin/image/<?= $post['tipe_postingan']; ?>/<?= $post['thumbnail']; ?>" width="100%" alt=""></p>
                                     </div>
                                     <div class="col-4">
                                         <h4 class="m-0 text-uppercase font-weight-bold">RELATE POSTS</h4>
@@ -50,9 +50,9 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                                         foreach ($relate as $data) {
                                         ?>
                                             <div class="position-relative mb-2">
-                                                <img width="100%" src="admin/image/<?= $data['tipe_postingan']; ?>/<?= $data['thumbnail']; ?>" style="object-fit: cover;">
+                                                <img width="100%" src="<?= $base_url; ?>admin/image/<?= $data['tipe_postingan']; ?>/<?= $data['thumbnail']; ?>" style="object-fit: cover;">
                                                 <div class="bg-white border border-top-0 p-1">
-                                                    <p><a href="index.php?page=post&id-post=<?= $data['id_posts']; ?>" style="color: #000; font-size: 12px;"><?= $data['judul']; ?></a></p>
+                                                    <p><a href="<?= $base_url; ?>aksi.php?aksi=view&id-posts=<?= $data['id_posts']; ?>" style="color: #000; font-size: 12px;"><?= $data['judul']; ?></a></p>
                                                 </div>
                                             </div>
                                         <?php
@@ -82,7 +82,7 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                                     <div class="col-lg-12 ">
                                         <h6 class="m-0 text-uppercase font-weight-bold">ABOUT ADMIN</h6>
                                         <div class="bg-white border p-1" style="border-bottom: 3px solid #3183d4!important;">
-                                            <img src="img/admin.jpeg" style="float: left;" alt="" width="20%">
+                                            <img src="<?= $base_url; ?>img/admin.jpeg" style="float: left;" alt="" width="20%">
                                             <button class="admin btn btn-dark"><i class="fab fa-twitter-square"></i> Twitter</button>
                                             <button class="admin btn btn-dark"><i class="fab fa-pinterest-square"></i> Pinterest</button><br>
                                             <button class="admin btn btn-dark"><i class="fab fa-facebook-square"></i> Facebook</button>
@@ -102,10 +102,10 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                                     <div class="col-lg-12 ">
                                         <h6 class="m-0 text-uppercase font-weight-bold">Tambahkan Komentar</h6>
                                         <div class="komen bg-white border p-1" style="border-bottom: 3px solid #3183d4!important;">
-                                            <form action="aksi.php?aksi=komen" method="post">
+                                            <form action="<?= $base_url; ?>aksi.php?aksi=komen" method="post">
                                                 <input type="hidden" name="id" value="<?= $id; ?>">
                                                 <div class="nama mt-3">
-                                                    <img src="img/noimage.png" height="100" class="mr-3" alt="" style="float: left;">
+                                                    <img src="<?= $base_url; ?>img/noimage.png" height="100" class="mr-3" alt="" style="float: left;">
                                                     <label for="nama" style="font-size: 12px;" class="form-label">* Masukkan Nama</label>
                                                     <input type="text" name="nama" class="form-control" style="width: 400px;" required>
                                                     <label style="font-size: 12px;" for="komentar" class="form-label mt-2">* Komentar</label>
@@ -129,7 +129,7 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                                                 foreach ($komen as $data) :
                                             ?>
                                                     <div class="mb-4">
-                                                        <img src="img/noimage.png" height="100" class="mr-3" alt="" style="float: left;">
+                                                        <img src="<?= $base_url; ?>img/noimage.png" height="100" class="mr-3" alt="" style="float: left;">
                                                         <div class="card">
                                                             <h5 class="card-header"><?= $data['nama_users']; ?></h5>
                                                             <div class="card-body">
@@ -160,7 +160,7 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                     </div>
                     <div class="bg-white border border-top-0 p-3">
                         <div class="d-flex flex-wrap m-n1">
-                            <img class="img-kepsek" src="img/kepsek.jpg" style="object-fit: cover;" width="100%">
+                            <img class="img-kepsek" src="<?= $base_url; ?>img/kepsek.jpg" style="object-fit: cover;" width="100%">
                         </div>
                         <div class="mt-3">
                             <h5>
@@ -189,13 +189,13 @@ $relate = mysqli_query($con, "SELECT * FROM tb_posts WHERE tipe_postingan='$tipe
                         foreach ($popular as $data) :
                         ?>
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <img class="" height="110px" width="110px" src="admin/image/<?= $data['tipe_postingan']; ?>/<?= $data['thumbnail']; ?>" alt="" style="object-fit: cover;">
+                                <img class="" height="110px" width="110px" src="<?= $base_url; ?>admin/image/<?= $data['tipe_postingan']; ?>/<?= $data['thumbnail']; ?>" alt="" style="object-fit: cover;">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""><?= $data['tipe_postingan']; ?></a>
                                         <a class="text-body" href=""><small><?= tanggal_indo($data['tanggal_post']); ?></small></a>
                                     </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="aksi.php?aksi=view&id-posts=<?= $data['id_posts']; ?>"><?= substr($data['judul'], 0, 25); ?>...</a>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="<?= $base_url; ?>aksi.php?aksi=view&id-posts=<?= $data['id_posts']; ?>"><?= substr($data['judul'], 0, 25); ?>...</a>
                                     <span style="font-size: 12px;"><i class="fas fa-eye"></i> <?= $data['views']; ?> Views</span>
                                 </div>
                             </div>

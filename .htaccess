@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteRule ^beranda index.php?page=beranda
+RewriteRule ^visimisi index.php?page=visimisi
+RewriteRule ^struktursekolah index.php?page=struktursekolah
+RewriteRule ^saranaprasarana index.php?page=saranaprasarana
+RewriteRule ^kepalasekolah index.php?page=kepalasekolah
+RewriteRule ^komite index.php?page=komite
+RewriteRule ^kemitraan index.php?page=kemitraan
+RewriteRule ^pbm index.php?page=pbm
+RewriteRule ^jurusan/([0-9a-zA-Z_-]+) index.php?page=jurusan&jurusan=$1
+RewriteRule ^guru index.php?page=guru
+RewriteRule ^post/([0-9a-zA-Z_-]+) index.php?page=post&id-post=$1
+RewriteRule ^allpost/([0-9a-zA-Z_-]+) index.php?page=allpost&type=$1

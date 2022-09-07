@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url; ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Proses Belajar Mengajar</a>
                     </li>
@@ -30,7 +30,7 @@ $pbm = mysqli_query($con, "SELECT * FROM tb_pbm")->fetch_array();
             <div class="page-body">
                 <!-- Basic table card start -->
                 <h4>Edit PBM</h4>
-                <form action="action.php?aksi=epbm" method="post">
+                <form action="<?= $base_url; ?>action.php?aksi=epbm" method="post">
                     <input type="hidden" name="id" value="<?= $pbm['id']; ?>">
                     <textarea name="pbm" id="editor" cols="30" rows="10">
                         <?= $pbm['pbm']; ?>

@@ -7,7 +7,7 @@ $sambutan = mysqli_query($con, "SELECT * FROM tb_kepsek")->fetch_array();
             <div class="col-12">
                 <ul class="breadcrumb" style="font-size: 12px; background-color: white; color: #000;">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda" style="color: #000;"> <i class="fa fa-home"></i> Home</a>
+                        <a href="<?= $base_url; ?>beranda" style="color: #000;"> <i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!" style="color: #000;">Profil</a>
                     </li>

@@ -12,7 +12,7 @@
             <div class="col-md-4">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.php?page=beranda"> <i class="fa fa-home"></i> </a>
+                        <a href="<?= $base_url ?>dashboard"> <i class="fa fa-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#!">Berita</a>
                     </li>
@@ -44,7 +44,7 @@
                                                 <i class="fa fa-window-maximize full-card"></i>
                                             </li>
                                             <li>
-                                                <a href="index.php?halaman=eberita&id_posts=<?= $data['id_posts']; ?>">
+                                                <a href="<?= $base_url; ?>eberita/<?= $data['id_posts']; ?>">
                                                     <i class="fa fa-pencil-square-o"></i>
                                                 </a>
                                             </li>
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <form action="action.php?aksi=hapusberita" method="post">
+                                    <form action="<?= $base_url; ?>action.php?aksi=hapusberita" method="post">
                                         <input type="hidden" name="id_posts" value="<?= $data['id_posts']; ?>">
                                         <button type="submit" class="btn btn-primary">Hapus</button>
                                     </form>
